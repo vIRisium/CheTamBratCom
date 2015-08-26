@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d93fe62fde5e4eae875be938c5c2df1b" Name="Diagram1" ZoomLevel="48">
+        <EntityTypeShape EntityType="ACTBModel.pages" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTBModel.products" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTBModel.products_categories" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTBModel.provider_requests" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTBModel.providers" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTBModel.users" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ACTBModel.FK_pages_providers" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTBModel.FK_products_products_categories" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTBModel.FK_products_providers" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTBModel.FK_products_categories_products_categories1" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTBModel.FK_provider_requests_provider_requests" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTBModel.FK_provider_requests_providers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ACTBModel.providers_temp" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ACTBModel.products_temp" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

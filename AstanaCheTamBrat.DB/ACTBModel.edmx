@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ACTBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="pages">
+          <Key>
+            <PropertyRef Name="page_id" />
+          </Key>
+          <Property Name="page_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="page_url" Type="nvarchar" MaxLength="250" />
+          <Property Name="page_title" Type="nvarchar" MaxLength="250" />
+          <Property Name="page_meta_description" Type="nvarchar" MaxLength="500" />
+          <Property Name="page_meta_keywords" Type="nvarchar" MaxLength="250" />
+          <Property Name="page_content" Type="nvarchar(max)" />
+          <Property Name="provider_id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="product_shordescription" Type="nvarchar" MaxLength="250" />
+          <Property Name="product_fulldescription" Type="nvarchar" MaxLength="550" />
+          <Property Name="product_price" Type="int" />
+          <Property Name="product_hit" Type="bit" />
+          <Property Name="product_enabled" Type="bit" />
+          <Property Name="product_approved" Type="bit" />
+          <Property Name="category_id" Type="uniqueidentifier" />
+          <Property Name="provider_id" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="products_categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="category_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="category_parent" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="products_temp">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="product_shordescription" Type="nvarchar" MaxLength="250" />
+          <Property Name="product_fulldescription" Type="nvarchar" MaxLength="550" />
+          <Property Name="product_price" Type="int" />
+          <Property Name="product_hit" Type="bit" />
+          <Property Name="product_enabled" Type="bit" />
+          <Property Name="product_approved" Type="bit" />
+          <Property Name="category_id" Type="uniqueidentifier" />
+          <Property Name="provider_id" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="provider_requests">
+          <Key>
+            <PropertyRef Name="request_id" />
+          </Key>
+          <Property Name="request_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="request_type" Type="nvarchar" MaxLength="1" />
+          <Property Name="request_text" Type="nchar" MaxLength="250" />
+          <Property Name="request_date" Type="datetime" />
+          <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="provider_id" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="providers">
+          <Key>
+            <PropertyRef Name="provider_id" />
+          </Key>
+          <Property Name="provider_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="provider_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="provider_email" Type="nvarchar" MaxLength="50" />
+          <Property Name="provider_phone" Type="nvarchar" MaxLength="30" />
+          <Property Name="provider_short_description" Type="nvarchar" MaxLength="250" />
+          <Property Name="provider_rating_good" Type="int" />
+          <Property Name="provider_rating_bad" Type="int" />
+          <Property Name="provider_full_description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="provider_minimum_price" Type="int" />
+          <Property Name="provider_average_delivery_minutes" Type="int" />
+          <Property Name="provider_url" Type="nvarchar" MaxLength="250" />
+          <Property Name="provider_approved" Type="bit" />
+          <Property Name="provider_password" Type="nvarchar" MaxLength="50" />
+          <Property Name="provider_contact" Type="nvarchar" MaxLength="250" />
+          <Property Name="provider_address" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="providers_temp">
+          <Key>
+            <PropertyRef Name="provider_id" />
+          </Key>
+          <Property Name="provider_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="provider_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="provider_email" Type="nvarchar" MaxLength="50" />
+          <Property Name="provider_phone" Type="nvarchar" MaxLength="30" />
+          <Property Name="provider_short_description" Type="nvarchar" MaxLength="250" />
+          <Property Name="provider_rating_good" Type="int" />
+          <Property Name="provider_rating_bad" Type="int" />
+          <Property Name="provider_full_description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="provider_minimum_price" Type="int" />
+          <Property Name="provider_average_delivery_minutes" Type="int" />
+          <Property Name="provider_url" Type="nvarchar" MaxLength="250" />
+          <Property Name="provider_approved" Type="bit" />
+          <Property Name="provider_password" Type="nvarchar" MaxLength="50" />
+          <Property Name="provider_contact" Type="nvarchar" MaxLength="250" />
+          <Property Name="provider_address" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="user_phone" Type="nvarchar" MaxLength="11" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="user_address" Type="nvarchar" MaxLength="250" />
+          <Property Name="user_comment" Type="nvarchar" MaxLength="500" />
+          <Property Name="user_parse_id" Type="uniqueidentifier" />
+          <Property Name="user_platform" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK_pages_providers">
+          <End Role="providers" Type="Self.providers" Multiplicity="1" />
+          <End Role="pages" Type="Self.pages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="providers">
+              <PropertyRef Name="provider_id" />
+            </Principal>
+            <Dependent Role="pages">
+              <PropertyRef Name="provider_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_products_categories_products_categories1">
+          <End Role="products_categories" Type="Self.products_categories" Multiplicity="0..1" />
+          <End Role="products_categories1" Type="Self.products_categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="products_categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="products_categories1">
+              <PropertyRef Name="category_parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_products_products_categories">
+          <End Role="products_categories" Type="Self.products_categories" Multiplicity="0..1" />
+          <End Role="products" Type="Self.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="products_categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_products_providers">
+          <End Role="providers" Type="Self.providers" Multiplicity="0..1" />
+          <End Role="products" Type="Self.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="providers">
+              <PropertyRef Name="provider_id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="provider_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_provider_requests_provider_requests">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="provider_requests" Type="Self.provider_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="provider_requests">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_provider_requests_providers">
+          <End Role="providers" Type="Self.providers" Multiplicity="0..1" />
+          <End Role="provider_requests" Type="Self.provider_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="providers">
+              <PropertyRef Name="provider_id" />
+            </Principal>
+            <Dependent Role="provider_requests">
+              <PropertyRef Name="provider_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ACTBModelStoreContainer">
+          <EntitySet Name="pages" EntityType="Self.pages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="products_categories" EntityType="Self.products_categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="products_temp" EntityType="Self.products_temp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="provider_requests" EntityType="Self.provider_requests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="providers" EntityType="Self.providers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="providers_temp" EntityType="Self.providers_temp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_pages_providers" Association="Self.FK_pages_providers">
+            <End Role="providers" EntitySet="providers" />
+            <End Role="pages" EntitySet="pages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_products_categories_products_categories1" Association="Self.FK_products_categories_products_categories1">
+            <End Role="products_categories" EntitySet="products_categories" />
+            <End Role="products_categories1" EntitySet="products_categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_products_products_categories" Association="Self.FK_products_products_categories">
+            <End Role="products_categories" EntitySet="products_categories" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_products_providers" Association="Self.FK_products_providers">
+            <End Role="providers" EntitySet="providers" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_provider_requests_provider_requests" Association="Self.FK_provider_requests_provider_requests">
+            <End Role="users" EntitySet="users" />
+            <End Role="provider_requests" EntitySet="provider_requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_provider_requests_providers" Association="Self.FK_provider_requests_providers">
+            <End Role="providers" EntitySet="providers" />
+            <End Role="provider_requests" EntitySet="provider_requests" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ACTBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="pages">
+          <Key>
+            <PropertyRef Name="page_id" />
+          </Key>
+          <Property Name="page_id" Type="Guid" Nullable="false" />
+          <Property Name="page_url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="page_title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="page_meta_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="page_meta_keywords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="page_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="provider_id" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="providers" Relationship="Self.FK_pages_providers" FromRole="pages" ToRole="providers" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="Guid" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_shordescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_fulldescription" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="product_price" Type="Int32" />
+          <Property Name="product_hit" Type="Boolean" />
+          <Property Name="product_enabled" Type="Boolean" />
+          <Property Name="product_approved" Type="Boolean" />
+          <Property Name="category_id" Type="Guid" />
+          <Property Name="provider_id" Type="Guid" />
+          <NavigationProperty Name="products_categories" Relationship="Self.FK_products_products_categories" FromRole="products" ToRole="products_categories" />
+          <NavigationProperty Name="providers" Relationship="Self.FK_products_providers" FromRole="products" ToRole="providers" />
+        </EntityType>
+        <EntityType Name="products_categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Guid" Nullable="false" />
+          <Property Name="category_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="category_parent" Type="Guid" />
+          <NavigationProperty Name="products" Relationship="Self.FK_products_products_categories" FromRole="products_categories" ToRole="products" />
+          <NavigationProperty Name="products_categories1" Relationship="Self.FK_products_categories_products_categories1" FromRole="products_categories" ToRole="products_categories1" />
+          <NavigationProperty Name="products_categories2" Relationship="Self.FK_products_categories_products_categories1" FromRole="products_categories1" ToRole="products_categories" />
+        </EntityType>
+        <EntityType Name="provider_requests">
+          <Key>
+            <PropertyRef Name="request_id" />
+          </Key>
+          <Property Name="request_id" Type="Guid" Nullable="false" />
+          <Property Name="request_type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="request_text" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="request_date" Type="DateTime" Precision="3" />
+          <Property Name="user_id" Type="Guid" Nullable="false" />
+          <Property Name="provider_id" Type="Guid" />
+          <NavigationProperty Name="users" Relationship="Self.FK_provider_requests_provider_requests" FromRole="provider_requests" ToRole="users" />
+          <NavigationProperty Name="providers" Relationship="Self.FK_provider_requests_providers" FromRole="provider_requests" ToRole="providers" />
+        </EntityType>
+        <EntityType Name="providers">
+          <Key>
+            <PropertyRef Name="provider_id" />
+          </Key>
+          <Property Name="provider_id" Type="Guid" Nullable="false" />
+          <Property Name="provider_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="provider_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="provider_phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="provider_short_description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="provider_rating_good" Type="Int32" />
+          <Property Name="provider_rating_bad" Type="Int32" />
+          <Property Name="provider_full_description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="provider_minimum_price" Type="Int32" />
+          <Property Name="provider_average_delivery_minutes" Type="Int32" />
+          <Property Name="provider_url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="provider_approved" Type="Boolean" />
+          <NavigationProperty Name="pages" Relationship="Self.FK_pages_providers" FromRole="providers" ToRole="pages" />
+          <NavigationProperty Name="products" Relationship="Self.FK_products_providers" FromRole="providers" ToRole="products" />
+          <NavigationProperty Name="provider_requests" Relationship="Self.FK_provider_requests_providers" FromRole="providers" ToRole="provider_requests" />
+          <Property Name="provider_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="provider_contact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="provider_address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Guid" Nullable="false" />
+          <Property Name="user_phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="user_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="user_address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="user_comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="user_parse_id" Type="Guid" />
+          <Property Name="user_platform" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="provider_requests" Relationship="Self.FK_provider_requests_provider_requests" FromRole="users" ToRole="provider_requests" />
+        </EntityType>
+        <Association Name="FK_pages_providers">
+          <End Role="providers" Type="Self.providers" Multiplicity="1" />
+          <End Role="pages" Type="Self.pages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="providers">
+              <PropertyRef Name="provider_id" />
+            </Principal>
+            <Dependent Role="pages">
+              <PropertyRef Name="provider_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_products_products_categories">
+          <End Role="products_categories" Type="Self.products_categories" Multiplicity="0..1" />
+          <End Role="products" Type="Self.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="products_categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_products_providers">
+          <End Role="providers" Type="Self.providers" Multiplicity="0..1" />
+          <End Role="products" Type="Self.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="providers">
+              <PropertyRef Name="provider_id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="provider_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_products_categories_products_categories1">
+          <End Role="products_categories" Type="Self.products_categories" Multiplicity="0..1" />
+          <End Role="products_categories1" Type="Self.products_categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="products_categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="products_categories1">
+              <PropertyRef Name="category_parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_provider_requests_provider_requests">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="provider_requests" Type="Self.provider_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="provider_requests">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_provider_requests_providers">
+          <End Role="providers" Type="Self.providers" Multiplicity="0..1" />
+          <End Role="provider_requests" Type="Self.provider_requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="providers">
+              <PropertyRef Name="provider_id" />
+            </Principal>
+            <Dependent Role="provider_requests">
+              <PropertyRef Name="provider_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ACTBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="pages" EntityType="Self.pages" />
+          <EntitySet Name="products" EntityType="Self.products" />
+          <EntitySet Name="products_categories" EntityType="Self.products_categories" />
+          <EntitySet Name="provider_requests" EntityType="Self.provider_requests" />
+          <EntitySet Name="providers" EntityType="Self.providers" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <AssociationSet Name="FK_pages_providers" Association="Self.FK_pages_providers">
+            <End Role="providers" EntitySet="providers" />
+            <End Role="pages" EntitySet="pages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_products_products_categories" Association="Self.FK_products_products_categories">
+            <End Role="products_categories" EntitySet="products_categories" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_products_providers" Association="Self.FK_products_providers">
+            <End Role="providers" EntitySet="providers" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_products_categories_products_categories1" Association="Self.FK_products_categories_products_categories1">
+            <End Role="products_categories" EntitySet="products_categories" />
+            <End Role="products_categories1" EntitySet="products_categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_provider_requests_provider_requests" Association="Self.FK_provider_requests_provider_requests">
+            <End Role="users" EntitySet="users" />
+            <End Role="provider_requests" EntitySet="provider_requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_provider_requests_providers" Association="Self.FK_provider_requests_providers">
+            <End Role="providers" EntitySet="providers" />
+            <End Role="provider_requests" EntitySet="provider_requests" />
+          </AssociationSet>
+          <EntitySet Name="providers_temp" EntityType="ACTBModel.providers_temp" />
+          <EntitySet Name="products_temp" EntityType="ACTBModel.products_temp" />
+        </EntityContainer>
+        <EntityType Name="providers_temp">
+          <Key>
+            <PropertyRef Name="provider_id" />
+          </Key>
+          <Property Name="provider_id" Type="Guid" Nullable="false" />
+          <Property Name="provider_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="provider_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="provider_phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="provider_short_description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="provider_rating_good" Type="Int32" />
+          <Property Name="provider_rating_bad" Type="Int32" />
+          <Property Name="provider_full_description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="provider_minimum_price" Type="Int32" />
+          <Property Name="provider_average_delivery_minutes" Type="Int32" />
+          <Property Name="provider_url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="provider_approved" Type="Boolean" />
+          <Property Name="provider_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="provider_contact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="provider_address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="products_temp">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="Guid" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_shordescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_fulldescription" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="product_price" Type="Int32" />
+          <Property Name="product_hit" Type="Boolean" />
+          <Property Name="product_enabled" Type="Boolean" />
+          <Property Name="product_approved" Type="Boolean" />
+          <Property Name="category_id" Type="Guid" />
+          <Property Name="provider_id" Type="Guid" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ACTBModelStoreContainer" CdmEntityContainer="ACTBEntities">
+          <EntitySetMapping Name="pages">
+            <EntityTypeMapping TypeName="ACTBModel.pages">
+              <MappingFragment StoreEntitySet="pages">
+                <ScalarProperty Name="page_id" ColumnName="page_id" />
+                <ScalarProperty Name="page_url" ColumnName="page_url" />
+                <ScalarProperty Name="page_title" ColumnName="page_title" />
+                <ScalarProperty Name="page_meta_description" ColumnName="page_meta_description" />
+                <ScalarProperty Name="page_meta_keywords" ColumnName="page_meta_keywords" />
+                <ScalarProperty Name="page_content" ColumnName="page_content" />
+                <ScalarProperty Name="provider_id" ColumnName="provider_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="ACTBModel.products">
+              <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_shordescription" ColumnName="product_shordescription" />
+                <ScalarProperty Name="product_fulldescription" ColumnName="product_fulldescription" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_hit" ColumnName="product_hit" />
+                <ScalarProperty Name="product_enabled" ColumnName="product_enabled" />
+                <ScalarProperty Name="product_approved" ColumnName="product_approved" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="provider_id" ColumnName="provider_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products_categories">
+            <EntityTypeMapping TypeName="ACTBModel.products_categories">
+              <MappingFragment StoreEntitySet="products_categories">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="category_parent" ColumnName="category_parent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provider_requests">
+            <EntityTypeMapping TypeName="ACTBModel.provider_requests">
+              <MappingFragment StoreEntitySet="provider_requests">
+                <ScalarProperty Name="request_id" ColumnName="request_id" />
+                <ScalarProperty Name="request_type" ColumnName="request_type" />
+                <ScalarProperty Name="request_text" ColumnName="request_text" />
+                <ScalarProperty Name="request_date" ColumnName="request_date" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="provider_id" ColumnName="provider_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="providers">
+            <EntityTypeMapping TypeName="ACTBModel.providers">
+              <MappingFragment StoreEntitySet="providers">
+                <ScalarProperty Name="provider_address" ColumnName="provider_address" />
+                <ScalarProperty Name="provider_contact" ColumnName="provider_contact" />
+                <ScalarProperty Name="provider_password" ColumnName="provider_password" />
+                <ScalarProperty Name="provider_id" ColumnName="provider_id" />
+                <ScalarProperty Name="provider_name" ColumnName="provider_name" />
+                <ScalarProperty Name="provider_email" ColumnName="provider_email" />
+                <ScalarProperty Name="provider_phone" ColumnName="provider_phone" />
+                <ScalarProperty Name="provider_short_description" ColumnName="provider_short_description" />
+                <ScalarProperty Name="provider_rating_good" ColumnName="provider_rating_good" />
+                <ScalarProperty Name="provider_rating_bad" ColumnName="provider_rating_bad" />
+                <ScalarProperty Name="provider_full_description" ColumnName="provider_full_description" />
+                <ScalarProperty Name="provider_minimum_price" ColumnName="provider_minimum_price" />
+                <ScalarProperty Name="provider_average_delivery_minutes" ColumnName="provider_average_delivery_minutes" />
+                <ScalarProperty Name="provider_url" ColumnName="provider_url" />
+                <ScalarProperty Name="provider_approved" ColumnName="provider_approved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="ACTBModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_address" ColumnName="user_address" />
+                <ScalarProperty Name="user_comment" ColumnName="user_comment" />
+                <ScalarProperty Name="user_parse_id" ColumnName="user_parse_id" />
+                <ScalarProperty Name="user_platform" ColumnName="user_platform" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="providers_temp">
+            <EntityTypeMapping TypeName="ACTBModel.providers_temp">
+              <MappingFragment StoreEntitySet="providers_temp">
+                <ScalarProperty Name="provider_address" ColumnName="provider_address" />
+                <ScalarProperty Name="provider_contact" ColumnName="provider_contact" />
+                <ScalarProperty Name="provider_password" ColumnName="provider_password" />
+                <ScalarProperty Name="provider_approved" ColumnName="provider_approved" />
+                <ScalarProperty Name="provider_url" ColumnName="provider_url" />
+                <ScalarProperty Name="provider_average_delivery_minutes" ColumnName="provider_average_delivery_minutes" />
+                <ScalarProperty Name="provider_minimum_price" ColumnName="provider_minimum_price" />
+                <ScalarProperty Name="provider_full_description" ColumnName="provider_full_description" />
+                <ScalarProperty Name="provider_rating_bad" ColumnName="provider_rating_bad" />
+                <ScalarProperty Name="provider_rating_good" ColumnName="provider_rating_good" />
+                <ScalarProperty Name="provider_short_description" ColumnName="provider_short_description" />
+                <ScalarProperty Name="provider_phone" ColumnName="provider_phone" />
+                <ScalarProperty Name="provider_email" ColumnName="provider_email" />
+                <ScalarProperty Name="provider_name" ColumnName="provider_name" />
+                <ScalarProperty Name="provider_id" ColumnName="provider_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products_temp">
+            <EntityTypeMapping TypeName="ACTBModel.products_temp">
+              <MappingFragment StoreEntitySet="products_temp">
+                <ScalarProperty Name="provider_id" ColumnName="provider_id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="product_approved" ColumnName="product_approved" />
+                <ScalarProperty Name="product_enabled" ColumnName="product_enabled" />
+                <ScalarProperty Name="product_hit" ColumnName="product_hit" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_fulldescription" ColumnName="product_fulldescription" />
+                <ScalarProperty Name="product_shordescription" ColumnName="product_shordescription" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

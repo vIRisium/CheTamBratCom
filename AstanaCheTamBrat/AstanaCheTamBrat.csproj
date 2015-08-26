@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3AB9B957-29F2-4525-B33A-FF79DC27AC94}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AstanaCheTamBrat</RootNamespace>
+    <AssemblyName>AstanaCheTamBrat</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\animate.delay.css" />
+    <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\bootstrap-responsive.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\colorbox.css" />
+    <Content Include="Content\css\droidserif.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\isotope.css" />
+    <Content Include="Content\css\roboto.css" />
+    <Content Include="Content\css\style.blue.css" />
+    <Content Include="Content\css\style.default.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\arrow-down.png" />
+    <Content Include="Content\images\arrow-n.png" />
+    <Content Include="Content\images\arrow-next.png" />
+    <Content Include="Content\images\arrow-p.png" />
+    <Content Include="Content\images\arrow-prev.png" />
+    <Content Include="Content\images\arrow-right.png" />
+    <Content Include="Content\images\arrow-right2.png" />
+    <Content Include="Content\images\backtop.png" />
+    <Content Include="Content\images\collapse.png" />
+    <Content Include="Content\images\colorbox\border.png" />
+    <Content Include="Content\images\colorbox\controls.png" />
+    <Content Include="Content\images\colorbox\ie6\borderBottomCenter.png" />
+    <Content Include="Content\images\colorbox\ie6\borderBottomLeft.png" />
+    <Content Include="Content\images\colorbox\ie6\borderBottomRight.png" />
+    <Content Include="Content\images\colorbox\ie6\borderMiddleLeft.png" />
+    <Content Include="Content\images\colorbox\ie6\borderMiddleRight.png" />
+    <Content Include="Content\images\colorbox\ie6\borderTopCenter.png" />
+    <Content Include="Content\images\colorbox\ie6\borderTopLeft.png" />
+    <Content Include="Content\images\colorbox\ie6\borderTopRight.png" />
+    <Content Include="Content\images\colorbox\loading.gif" />
+    <Content Include="Content\images\colorbox\loading_background.png" />
+    <Content Include="Content\images\colorbox\overlay.png" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\icon-search.png" />
+    <Content Include="Content\images\image.html" />
+    <Content Include="Content\images\line-333.png" />
+    <Content Include="Content\images\line-ddd.png" />
+    <Content Include="Content\images\line-eee.png" />
+    <Content Include="Content\images\menuicon.png" />
+    <Content Include="Content\images\next.png" />
+    <Content Include="Content\images\quote.png" />
+    <Content Include="Content\images\social\dribbble.png" />
+    <Content Include="Content\images\social\facebook.png" />
+    <Content Include="Content\images\social\pinterest.png" />
+    <Content Include="Content\images\social\rss.png" />
+    <Content Include="Content\images\social\twitter.png" />
+    <Content Include="Content\images\testi-bg.png" />
+    <Content Include="Content\images\toptn.png" />
+    <Content Include="Content\images\tp-logo.png" />
+    <Content Include="Content\img\glyphicons-halflings-white.html" />
+    <Content Include="Content\img\glyphicons-halflings.html" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\dropzone.js" />
+    <Content Include="Content\js\jquery-1.10.2.min.js" />
+    <Content Include="Content\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Content\js\jquery.dropdown.js" />
+    <Content Include="Content\js\modernizr.min.js" />
+    <Content Include="Content\lib\modernizr\modernizr.html" />
+    <Content Include="Content\messages\provider_aprooved.html" />
+    <Content Include="Content\Theme\css\quirk.css" />
+    <Content Include="Content\Theme\images\doc.png" />
+    <Content Include="Content\Theme\images\docx.png" />
+    <Content Include="Content\Theme\images\dot.png" />
+    <Content Include="Content\Theme\images\image.png" />
+    <Content Include="Content\Theme\images\logo-big.html" />
+    <Content Include="Content\Theme\images\logo.png" />
+    <Content Include="Content\Theme\images\mp3.png" />
+    <Content Include="Content\Theme\images\mp4.png" />
+    <Content Include="Content\Theme\images\photos\bg.jpg" />
+    <Content Include="Content\Theme\images\photos\loggeduser.png" />
+    <Content Include="Content\Theme\images\photos\photo1.jpg" />
+    <Content Include="Content\Theme\images\photos\photo2.jpg" />
+    <Content Include="Content\Theme\images\photos\profilepic.png" />
+    <Content Include="Content\Theme\images\photos\user1.png" />
+    <Content Include="Content\Theme\images\photos\user10.png" />
+    <Content Include="Content\Theme\images\photos\user2.png" />
+    <Content Include="Content\Theme\images\photos\user3.png" />
+    <Content Include="Content\Theme\images\photos\user4.png" />
+    <Content Include="Content\Theme\images\photos\user5.png" />
+    <Content Include="Content\Theme\images\photos\user6.png" />
+    <Content Include="Content\Theme\images\photos\user7.png" />
+    <Content Include="Content\Theme\images\photos\user8.png" />
+    <Content Include="Content\Theme\images\photos\user9.png" />
+    <Content Include="Content\Theme\images\png.png" />
+    <Content Include="Content\Theme\images\_div style=.html" />
+    <Content Include="Content\Theme\js\charts.js" />
+    <Content Include="Content\Theme\js\dashboard.js" />
+    <Content Include="Content\Theme\js\map.apple.js" />
+    <Content Include="Content\Theme\js\map.bluewater.js" />
+    <Content Include="Content\Theme\js\map.mapbox.js" />
+    <Content Include="Content\Theme\js\map.shadesofgrey.js" />
+    <Content Include="Content\Theme\js\map.shiftworker.js" />
+    <Content Include="Content\Theme\js\quirk.js" />
+    <Content Include="Content\Theme\lib\animate.css\animate.html" />
+    <Content Include="Content\Theme\lib\animate.css\_div style=.html" />
+    <Content Include="Content\Theme\lib\bootstrap3-wysihtml5-bower\bootstrap3-wysihtml5.all.js" />
+    <Content Include="Content\Theme\lib\bootstrap3-wysihtml5-bower\bootstrap3-wysihtml5.css" />
+    <Content Include="Content\Theme\lib\bootstrapcolorpicker\css\bootstrap-colorpicker.css" />
+    <Content Include="Content\Theme\lib\bootstrapcolorpicker\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Content\Theme\lib\bootstrapcolorpicker\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Content\Theme\lib\bootstrapcolorpicker\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Content\Theme\lib\bootstrapcolorpicker\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="Content\Theme\lib\bootstrapcolorpicker\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Content\Theme\lib\bootstrapcolorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Content\Theme\lib\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Theme\lib\datatables-plugins\integration\bootstrap\3\dataTables.bootstrap.css" />
+    <Content Include="Content\Theme\lib\datatables-plugins\integration\bootstrap\3\dataTables.bootstrap.js" />
+    <Content Include="Content\Theme\lib\datatables\jquery.dataTables.js" />
+    <Content Include="Content\Theme\lib\dropzone\dropzone.css" />
+    <Content Include="Content\Theme\lib\dropzone\dropzone.js" />
+    <Content Include="Content\Theme\lib\flot-spline\jquery.flot.spline.js" />
+    <Content Include="Content\Theme\lib\flot\jquery.flot.categories.js" />
+    <Content Include="Content\Theme\lib\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\Theme\lib\flot\jquery.flot.js" />
+    <Content Include="Content\Theme\lib\flot\jquery.flot.pie.js" />
+    <Content Include="Content\Theme\lib\flot\jquery.flot.resize.js" />
+    <Content Include="Content\Theme\lib\flot\jquery.flot.symbol.js" />
+    <Content Include="Content\Theme\lib\fontawesome\css\font-awesome.css" />
+    <Content Include="Content\Theme\lib\gmaps\gmaps.js" />
+    <Content Include="Content\Theme\lib\handlebars\handlebars.js" />
+    <Content Include="Content\Theme\lib\Hover\hover.css" />
+    <Content Include="Content\Theme\lib\images\gritter-light.html" />
+    <Content Include="Content\Theme\lib\images\gritter.html" />
+    <Content Include="Content\Theme\lib\images\ie-spacer.html" />
+    <Content Include="Content\Theme\lib\images\_div style=.html" />
+    <Content Include="Content\Theme\lib\ionicons\css\ionicons.css" />
+    <Content Include="Content\Theme\lib\jquery-autosize\autosize.js" />
+    <Content Include="Content\Theme\lib\jquery-knob\jquery.knob.js" />
+    <Content Include="Content\Theme\lib\jquery-maskedinput\jquery.maskedinput.js" />
+    <Content Include="Content\Theme\lib\jquery-sparkline\jquery.sparkline.js" />
+    <Content Include="Content\Theme\lib\jquery-toggles\toggles-full.css" />
+    <Content Include="Content\Theme\lib\jquery-toggles\toggles.js" />
+    <Content Include="Content\Theme\lib\jquery-ui\images\ui-icons_444444_256x240.html" />
+    <Content Include="Content\Theme\lib\jquery-ui\images\ui-icons_555555_256x240.html" />
+    <Content Include="Content\Theme\lib\jquery-ui\images\ui-icons_777620_256x240.html" />
+    <Content Include="Content\Theme\lib\jquery-ui\images\ui-icons_777777_256x240.html" />
+    <Content Include="Content\Theme\lib\jquery-ui\images\ui-icons_cc0000_256x240.html" />
+    <Content Include="Content\Theme\lib\jquery-ui\images\ui-icons_ffffff_256x240.html" />
+    <Content Include="Content\Theme\lib\jquery-ui\images\_div style=.html" />
+    <Content Include="Content\Theme\lib\jquery-ui\jquery-ui.css" />
+    <Content Include="Content\Theme\lib\jquery-ui\jquery-ui.js" />
+    <Content Include="Content\Theme\lib\jquery-validate\jquery.validate.js" />
+    <Content Include="Content\Theme\lib\jquery.gritter\jquery.gritter.css" />
+    <Content Include="Content\Theme\lib\jquery.gritter\jquery.gritter.js" />
+    <Content Include="Content\Theme\lib\jquery.steps\jquery.steps.css" />
+    <Content Include="Content\Theme\lib\jquery.steps\jquery.steps.js" />
+    <Content Include="Content\Theme\lib\jqueryui-touch-punch\jquery.ui.touch-punch.js" />
+    <Content Include="Content\Theme\lib\jquery\jquery.js" />
+    <Content Include="Content\Theme\lib\modernizr\modernizr.js" />
+    <Content Include="Content\Theme\lib\morrisjs\morris.css" />
+    <Content Include="Content\Theme\lib\morrisjs\morris.js" />
+    <Content Include="Content\Theme\lib\raphael\raphael.js" />
+    <Content Include="Content\Theme\lib\select2\select2.css" />
+    <Content Include="Content\Theme\lib\select2\select2.js" />
+    <Content Include="Content\Theme\lib\summernote\summernote.css" />
+    <Content Include="Content\Theme\lib\summernote\summernote.js" />
+    <Content Include="Content\Theme\lib\timepicker\jquery.timepicker.css" />
+    <Content Include="Content\Theme\lib\timepicker\jquery.timepicker.js" />
+    <Content Include="Content\Theme\lib\weather-icons\css\weather-icons.css" />
+    <Content Include="Content\Theme\lib\wysihtml5x\wysihtml5x-toolbar.js" />
+    <Content Include="Content\Theme\lib\wysihtml5x\wysihtml5x.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ProviderController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\Translit.cs" />
+    <Compile Include="Models\ErrorModel.cs" />
+    <Compile Include="Models\UploadLogoModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Shared\AuthPagesMasterLayout.cshtml" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Views\Provider\singin.cshtml" />
+    <Content Include="Views\Provider\singup.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Provider\registred.cshtml" />
+    <Content Include="Views\Shared\CabinetPagesMasterLayout.cshtml" />
+    <Content Include="Views\Provider\cabinet.cshtml" />
+    <Content Include="Views\Provider\first_start.cshtml" />
+    <Content Include="Views\Provider\categories.cshtml" />
+    <Content Include="Views\Provider\add_product.cshtml" />
+    <Content Include="Views\Provider\products.cshtml" />
+    <Content Include="Views\Provider\edit_product.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AstanaCheTamBrat.DB\AstanaCheTamBrat.DB.csproj">
+      <Project>{96d66e30-8d62-4199-a225-c69552531a9a}</Project>
+      <Name>AstanaCheTamBrat.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CTBAuth\AstanaCheTamBrat.Auth.csproj">
+      <Project>{7c0f8e4a-ebc6-4d7c-9785-b4a11f913ab9}</Project>
+      <Name>AstanaCheTamBrat.Auth</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>25233</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25233/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

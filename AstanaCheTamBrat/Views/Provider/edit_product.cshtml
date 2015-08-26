@@ -1,0 +1,140 @@
+﻿@model AstanaCheTamBrat.DB.Models.Product
+@{
+    ViewBag.Title = "Добавление товара";
+    Layout = "~/Views/Shared/CabinetPagesMasterLayout.cshtml";
+    List<AstanaCheTamBrat.DB.Models.Category> allcategories = AstanaCheTamBrat.DB.Models.Categories.categories(null, true);
+    Guid product_id = Model.product_id;
+    Session["new_product_id"] = product_id;
+    string imageName = Model.product_id.ToString() + ".png";
+}
+
+@functions {
+
+    void DisplayCategories(AstanaCheTamBrat.DB.Models.Category current_cat, int padding)
+    {
+
+        string prepad = "";
+
+        for (int i = 0; i < padding; i++)
+            prepad += "&nbsp;&nbsp;";
+
+        if (current_cat.sub_categories.Count != 0)
+        {
+            ViewBag.Categories += ("<optgroup label='" + prepad + current_cat.category_name + "'>\n");
+
+            for (int i = 0; i < current_cat.sub_categories.Count; i++)
+            {
+                DisplayCategories(current_cat.sub_categories[i], padding + 1);
+            }
+
+            ViewBag.Categories += ("</optgroup>");
+        }
+        else
+        {
+            ViewBag.Categories += ("<option value='" + current_cat.category_id.ToString() + "'" + (Model.category_id == current_cat.category_id ? " selected" : "") + ">" + prepad + current_cat.category_name + "</option>");
+        }
+
+    }
+}
+<div class="panel">
+    <div class="panel-heading">
+        <h4 class="panel-title">Редактирование товара</h4>
+        <p>На данной странице вы можете отредактировать существующий товар. Заполните все поля. Учтите, что товар/услуга будет обновлен после утверждения модератором.</p>
+    </div>
+    <div class="panel-body">
+        <form id="form_add_product" method="post" action="/provider/add_product">
+            <div class="col-sm-6">
+                <label>Наименование товара</label>
+                <div class="form-group">
+                    <input type="text" value="@Model.product_name" id="product_name" name="product_name" placeholder="Наименование товара (Например: Пицца Маргарита)" class="form-control required" />
+                </div>
+                <label>Категория дня нового товара/услуги</label>
+                <div class="form-group">
+                    <select id="product_category" name="product_category" style="width: 100%" class="form-control select2-hidden-accessible" data-placeholder="Укажите категорий товара/услуги">
+                        @{
+                            for (int i = 0; i < allcategories.Count; i++)
+                            {
+                                DisplayCategories(allcategories[i], 0);
+                            }
+
+                        }
+                        @Html.Raw(ViewBag.Categories)
+                    </select>
+
+                </div>
+                <label>Краткое описание товара (250 символов)</label>
+                <div class="form-group">
+                    <input type="text" maxlength="250" value="@Model.product_shordescription" id="product_shordescription" name="product_shordescription" placeholder="Описание основных свойств товара (Например: состав, размер, цвет итд)" class="form-control required" />
+                </div>
+                <label>Полное описание товара (550 символов)</label>
+                <div class="form-group">
+                    <textarea maxlength="550" id="product_fulldescription" rows="2" name="product_fulldescription" placeholder="Полное описание товара" style="height:100px;" class="form-control required">@Model.product_fulldescription</textarea>
+                </div>
+                <label>Стоимость товара в тенге</label><br />
+
+                <div class="form-group col-sm-5" style="padding:0px;">
+                    <div class="input-group mb15">
+                        <input type="number" name="product_price" id="product_price" value="@Model.product_price" placeholder="Цена товара" class="form-control required">
+                        <span class="input-group-addon">ТЕНГЕ</span>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-5" style="padding-left:55px; padding-top:7px;">
+                    <div class="toggle-wrapper">
+                        <div class="toggle toggle-light" style="width:150px"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <label>Изображение (мин. размер 600х400)</label>
+                <div>
+                    <div class="dropzone" data-width="600" data-height="400" data-image="/Content/Uploads/@imageName" data-smaller="false" data-canvas-image-only="true" data-originalsize="false" data-url="/provider/upload_image_product" data-resize="true" style="width: 400px !important; height:250px !important; overflow:hidden;">
+                        <input type="file" name="thumb"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                </div>
+                <div class="form-group">
+                    <input type="submit" id="submit_button" value="Отправить на модерацию" class="btn btn-success" />
+                </div>
+            </div>
+
+            <input name="product_enabled" id="product_enabled" type="hidden" value="@(Model.product_enabled.Value == true ? "1" : "0")" />
+        </form>
+    </div>
+
+</div><!-- Panel-body End -->
+<script src="/Content/js/dropzone.js"></script>
+<script src="/Content/Theme/lib/jquery-validate/jquery.validate.js"></script>
+<script>
+
+    var cheked_product_enabled = @(Model.product_enabled.Value == true ? "1" : "0");
+
+    $("document").ready(function () {
+
+        $('#product_category').select2();
+
+        $('.toggle').toggles({
+            @(Model.product_enabled.Value == true ? "on: true," : "on: false,")
+            height: 26
+        }).click(function () {
+
+            if (cheked_product_enabled == 1)
+                cheked_product_enabled = 0;
+            else
+                cheked_product_enabled = 1;
+
+            $("#product_enabled").val(cheked_product_enabled);
+
+        });
+
+        $('.dropzone').html5imageupload();
+
+        $("#submit_button").click(function () {
+            return $("#form_add_product").valid();
+        });
+
+    });
+
+</script>

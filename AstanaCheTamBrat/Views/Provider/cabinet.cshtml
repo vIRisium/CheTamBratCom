@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewBag.Title = "cabinet";
+    Layout = "~/Views/Shared/CabinetPagesMasterLayout.cshtml";
+    WRADA_AUTH_MVC.WRADA_AUTH_MVC WAuth = new WRADA_AUTH_MVC.WRADA_AUTH_MVC();
+    WRADA_AUTH_MVC.SessionModel WUser = WAuth.CurrentCookie;
+    
+}

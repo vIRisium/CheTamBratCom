@@ -1,0 +1,17 @@
+﻿@model AstanaCheTamBrat.Models.ErrorModel
+
+@{
+    ViewBag.Title = "Произошла ошибка...";
+    Layout = "~/Views/Shared/AuthPagesMasterLayout.cshtml";
+}
+<div class="panel signin" style="width:600px;">
+    <div class="panel-heading">
+        <h1>Произошла ошибка...</h1>
+    </div>
+    <div class="panel-body">
+
+        <h4 class="panel-title">@Model.ErrorMessage</h4>
+        <br /><br />
+        <center><a href="javascript:window.history.back();">Вернуться назад</a></center>
+    </div>
+</div><!-- panel -->
